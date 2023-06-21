@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation Example</title>
+</head>
+<body>
+  <a href="../index.html">Back</a><br><br>
+  
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <br>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="errorMessages"></div>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const errorMessages = document.getElementById('errorMessages');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Clear any previous error messages
+      errorMessages.innerHTML = '';
+
+      // Retrieve form field values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Validate name
+      if (!name.match(/^[A-Za-z]+$/)) {
+        displayErrorMessage('Name should not be empty and should contain only letters');
+      }
+
+      // Validate email
+      if (!validateEmail(email)) {
+        displayErrorMessage('Email should be a valid email address');
+      }
+
+      // Validate password
+      if (!validatePassword(password)) {
+        displayErrorMessage('Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit');
+      }
+
+      // Validate confirm password
+      if (password !== confirmPassword) {
+        displayErrorMessage('Confirm Password should match the Password field');
+      }
+
+      // Submit the form if there are no errors
+      if (errorMessages.innerHTML === '') {
+        form.submit();
+      }
+    });
+
+    function displayErrorMessage(message) {
+      const errorMessage = document.createElement('p');
+      errorMessage.innerText = message;
+      errorMessages.appendChild(errorMessage);
+    }
+
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function validatePassword(password) {
+      // Minimum length of 8 characters
+      if (password.length < 8) {
+        return false;
+      }
+
+      // At least one uppercase letter, one lowercase letter, and one digit
+      const uppercaseRegex = /[A-Z]/;
+      const lowercaseRegex = /[a-z]/;
+      const digitRegex = /[0-9]/;
+
+      return uppercaseRegex.test(password) && lowercaseRegex.test(password) && digitRegex.test(password);
+    }
+  </script>
+</body>
+</html>

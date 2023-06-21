@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Query Selector</title>
+  <style>
+    .red-text {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <p id="paragraph1">This is paragraph 1.</p>
+  <p class="red-text">This is paragraph 2 with the red-text class.</p>
+  <p class="red-text">This is paragraph 3 with the red-text class.</p>
+  <p id="paragraph4">This is paragraph 4.</p>
+
+  <script>
+    function changeTextToRed() {
+      const paragraphs = document.querySelectorAll('.red-text');
+      for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

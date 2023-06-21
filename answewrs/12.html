@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Change Attribute Value</title>
+</head>
+<body>
+  <img id="myImage" src="assets/shuffle-for-tailwind.png" alt="Initial Image">
+  <button onclick="changeImage()">Change Image Source</button>
+
+  <script>
+    function changeImage() {
+      const img = document.getElementById('myImage');
+      img.setAttribute('src', './assets/amazon.svg');
+    }
+  </script>
+</body>
+</html>

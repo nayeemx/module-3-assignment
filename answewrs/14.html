@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX GET Request Example</title>
+</head>
+<body>
+  <h1>AJAX GET Request Example</h1>
+  <button onclick="sendAjaxGetRequest()">Send GET Request</button>
+  <div id="result"></div>
+
+  <script>
+    function sendAjaxGetRequest() {
+      var xhr = new XMLHttpRequest();
+      var url = "https://api.example.com/data";
+
+      xhr.open("GET", url, true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var response = xhr.responseText;
+            document.getElementById("result").innerHTML = response;
+          } else {
+            console.log("Error: " + xhr.status);
+          }
+        }
+      };
+
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

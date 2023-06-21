@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 Assignment</title>
+</head>
+<body>
+    <a href="../index.html">Back</a><br><br>
+    <script>
+        function getBrowserInfo() {
+  const userAgent = navigator.userAgent;
+  const browserInfo = {};
+
+  // Extract browser name
+  const browserNameRegex = /(edge|opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i;
+  const browserNameMatch = userAgent.match(browserNameRegex);
+  if (browserNameMatch) {
+    browserInfo.name = browserNameMatch[1].toLowerCase();
+  } else {
+    browserInfo.name = "unknown";
+  }
+
+  // Extract browser version
+  const browserVersionRegex = /(version|rv|edge|opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i;
+  const browserVersionMatch = userAgent.match(browserVersionRegex);
+  if (browserVersionMatch) {
+    browserInfo.version = browserVersionMatch[2];
+  } else {
+    browserInfo.version = "unknown";
+  }
+
+  return browserInfo;
+}
+const browserInfo = getBrowserInfo();
+
+document.write(`Browser Name: ${browserInfo.name}<br>`);
+document.write(`Browser Version: ${browserInfo.version}`);
+
+    </script>
+</body>
+</html>

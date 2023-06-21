@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulate CSS Class</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+    <a href="../index.html">Back</a><br><br>
+    
+  <button id="highlightButton">Highlight</button>
+  <p id="paragraph">Lorem ipsum dolor sit amet.</p>
+
+  <script>
+    const button = document.getElementById('highlightButton');
+    const paragraph = document.getElementById('paragraph');
+
+    button.addEventListener('click', function() {
+      paragraph.classList.add('highlight');
+    });
+  </script>
+</body>
+</html>

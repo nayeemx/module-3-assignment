@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 Assignment</title>
+</head>
+<body>
+    <a href="../index.html">Back</a><br><br>
+    <script>
+        function isPrime(integer) {
+  if (integer < 2) {
+    return false;
+  }
+
+  for (let i = 2; i <= Math.sqrt(integer); i++) {
+    if (integer % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+const number = 17;
+const isPrimeNumber = isPrime(number);
+
+document.write(`Is ${number} a prime number? ${isPrimeNumber}`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Example</title>
+</head>
+<body>
+  <a href="../index.html">Back</a><br><br>
+  
+  <button id="myButton">Click me</button>
+  <p id="myParagraph">Text content</p>
+
+  <script>
+    // Function to handle the button click event
+    function handleButtonClick() {
+      // Select the button and paragraph elements
+      const button = document.getElementById('myButton');
+      const paragraph = document.getElementById('myParagraph');
+
+      // Update the text content of the paragraph element
+      paragraph.textContent = 'Button Clicked!';
+    }
+
+    // Add an event listener to the button element
+    const button = document.getElementById('myButton');
+    button.addEventListener('click', handleButtonClick);
+  </script>
+</body>
+</html>

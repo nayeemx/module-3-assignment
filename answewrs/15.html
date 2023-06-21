@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX POST Request Example</title>
+  <script>
+    function sendAjaxPostRequest() {
+      var xhr = new XMLHttpRequest();
+      var url = "https://api.example.com/submit";
+      var data = JSON.stringify({ "name": "John Doe", "email": "johndoe@example.com" });
+
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            document.getElementById("result").innerHTML = "Request Successful. Please check the browser console for the response.";
+          } else {
+            console.error("Error: " + xhr.status);
+            document.getElementById("result").innerHTML = "Error: " + xhr.status + ". Please check the browser console for more details.";
+          }
+        }
+      };
+
+      xhr.send(data);
+    }
+  </script>
+</head>
+<body>
+  <h1>AJAX POST Request Example</h1>
+  <button onclick="sendAjaxPostRequest()">Send POST Request</button>
+  <p id="result"></p>
+</body>
+</html>

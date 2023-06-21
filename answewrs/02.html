@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 Assignment</title>
+</head>
+<body>
+    <a href="../index.html">Back</a><br><br>
+    <script>
+        function forsqroot(array) {
+  const sumOfSquares = array.reduce((sum, num) => sum + (num ** 2), 0);
+  const squareRoot = Math.sqrt(sumOfSquares);
+  return squareRoot;
+}
+const numbers = [2, 4, 6, 8, 10];
+const result = forsqroot(numbers);
+
+document.write(`Square root of the sum of squares: ${result}`);
+
+    </script>
+</body>
+</html>
